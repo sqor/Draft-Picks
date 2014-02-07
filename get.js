@@ -1,4 +1,8 @@
 var page = require('webpage').create();
+ var system = require('system');
+var args = system.args;
+console.log(args[0]);
+
 
 page.viewportSize = { width: 1200, height: 1600 };
 

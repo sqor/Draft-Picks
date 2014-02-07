@@ -1,2 +1,7 @@
 
+Deps:
 sudo apt-get install phantomjs
+
+
+Usage:
+ phantomjs get.js
