@@ -3,12 +3,14 @@ var page = require('webpage').create();
 var args = system.args;
 console.log(args[0]);
 
+var url = args[1];
+var outputFile= args[2];
 
 page.viewportSize = { width: 1200, height: 1600 };
 
-page.open('http://sqor.com/sport/nfl', function() {
+page.open(url, function() {
   setTimeout(function(){
-	  page.render('example2.png');
+	  page.render(outputFile);
 	  phantom.exit();
   }, 3000);
 });
