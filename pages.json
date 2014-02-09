@@ -1,0 +1,17 @@
+{
+
+    "pages": [
+        {
+                "site1": "/"
+                , "site2": "/"
+        }
+
+        , {
+                "site1": "/sport/nba"
+                , "site2": "/sport/nba"
+          }
+    ]
+
+    ,"site1Base": "http://stage.sqor.com"
+    ,"site2Base": "http://stage.sqor.com"
+}
