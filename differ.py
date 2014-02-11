@@ -22,16 +22,24 @@ def fetchPage(index, url, reportDir):
     os.popen("./getPage.sh " + url + " " + reportDir + "/" + index)
 
 
-def generatePages(pages, siteBase):
-    pagesWithBase = []
-    pdb.set_trace()
-    for page in pages:
-        pagesWithBase.append(siteBase + page)
-    return pagesWithBase
+def generatePages(pages, siteBase01, siteBase02):
+    pagesWithBase01 = []
+    pagesWithBasae02 = []
+    # pdb.set_trace()
+    for pagesEntry in pages:
+        page01End = pagesEntry["url1"]
+        page02End = pagesEntry["url2"]
+
+        pagesWithBase01.append(siteBase01 + page01End)
+        pagesWithBasae02.append(siteBase02 + page02End)
+
+    return {
+            "pages01": pagesWithBase01
+        ,   "pages02": pagesWithBasae02
+    }
 
 def run(fileName="sites.json"):
     sites = readJsonFromFile(fileName)
-    pages01 = generatePages(sites['pages'], sites["siteBase01"])
-    pages02 = generatePages(sites['pages'], sites["siteBase02"])
-    print pages01
+    pages = generatePages(sites['pages'], sites["siteBase01"], sites["siteBase02"])
 
+    return pages
