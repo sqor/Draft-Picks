@@ -38,15 +38,17 @@ def generatePages(pages, siteBase01, siteBase02):
     Takes the pages and adds a base to each page.
     '''
     pagesWithBase01 = []
-    pagesWithBasae02 = []
-    for pagesEntry in pages:
-        page01End = pagesEntry["url1"]
-        page02End = pagesEntry["url2"]
-
+    pagesWithBase02 = []
+    # XXX super ugly, fix this
+    for pagesEntry in pages[0]:
+        page01End = pagesEntry
         pagesWithBase01.append(siteBase01 + page01End)
-        pagesWithBasae02.append(siteBase02 + page02End)
 
-    return (pagesWithBase01, pagesWithBasae02)
+    for pagesEntry in pages[1]:
+        page01End = pagesEntry
+        pagesWithBase02.append(siteBase02 + page01End)
+
+    return (pagesWithBase01, pagesWithBase02)
 
 def fetchPages(reportDir, pages, prefix):
     index = 0
@@ -61,7 +63,7 @@ def generateDiffImage(imagePath01, imagePath02, outputImageName):
     _arguments = imagePath01 + " " + imagePath01 + " " + outputImageName
     return shell.exec_cmd("./generateDiff.sh " + _arguments)
 
-    #
+#
 def generateDiffImages(reportDir, prefix01, prefix02,  imagesCount):
     results = []
     for xx in range(0, imagesCount):
@@ -81,7 +83,7 @@ def run(fileName="sites.json"):
     # We get our pages into a nicer form
     sites = readJsonFromFile(fileName)
     (pages01, pages02) = generatePages(
-                sites['pages']
+            sites['pages']
             ,   sites["siteBase01"], sites["siteBase02"])
     print pages01
     print "pages 02"

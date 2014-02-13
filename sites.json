@@ -1,7 +1,7 @@
 {
     "pages": [
-        { "url1": "/", "url2": "/" }
-        , { "url1": "/sport/nba", "url2": "/sport/nba" }
+        [ "/",  "/sport/nfl"]
+        ,[  "/", "/sport/nba" ]
     ]
 
     ,   "siteBase01": "http://sqor.com"
