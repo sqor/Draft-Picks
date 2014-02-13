@@ -10,7 +10,7 @@ page.viewportSize = { width: 1200, height: 1600 };
 
 page.open(url, function() {
   setTimeout(function(){
-	  page.render("trials/" + outputFile);
+	  page.render( outputFile);
 	  phantom.exit();
   }, 6 *1000);
 });

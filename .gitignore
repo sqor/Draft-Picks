@@ -2,3 +2,5 @@
 trials/
 *.swp
 report_*
+*.swo
+*.pyc

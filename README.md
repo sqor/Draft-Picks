@@ -23,3 +23,19 @@ brew update && brew install phantomjs
 ### Usage:
   phantomjs get.js http://www.sqor.com/ sqor.png
 
+
+
+### Deps
+
+
+git clone utils
+# Get the path to utils
+export PYTHONPATH=/Users/jason/playground/util/python
+
+
+Testing
+python -c "import lib.cmds"
+
+_ = last command in python
+
+?shell.exec_cmd ===> info about that function

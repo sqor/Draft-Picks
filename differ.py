@@ -5,6 +5,8 @@ import tempfile
 
 import pdb
 
+from lib.cmds import shell
+
 def readJsonFromFile(fileName):
     '''
     Reads file into json python object
@@ -27,7 +29,8 @@ def fetchPage(index, url, reportDir):
     print imagePath
     print url
     print "--------------------_"
-    os.popen("./getPage.sh " + url + " " + imagePath)
+
+    output = shell.exec_cmd("./getPage.sh " + url + " " + imagePath)
 
 
 def generatePages(pages, siteBase01, siteBase02):
