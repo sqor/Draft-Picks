@@ -20,11 +20,11 @@ def setupDirectory():
     reportDir = tempfile.mkdtemp(prefix="report_", dir=".")
     return reportDir
 
-def generatePageScreenshotPath(index, reportDir):
-    return reportDir + "/" + str(index) + ".png"
+def generatePageScreenshotPath(index, reportDir, prefix):
+    return  reportDir + "/" + prefix + str(index) + ".png"
 
-def fetchPage(index, url, reportDir):
-    imagePath = generatePageScreenshotPath(index, reportDir )
+def fetchPage(index, url, reportDir, prefix):
+    imagePath = generatePageScreenshotPath(index, reportDir , prefix)
     print "--------------------_"
     print imagePath
     print url
@@ -48,10 +48,10 @@ def generatePages(pages, siteBase01, siteBase02):
 
     return (pagesWithBase01, pagesWithBasae02)
 
-def fetchPages(reportDir, pages):
+def fetchPages(reportDir, pages, prefix):
     index = 0
     for page in pages:
-        fetchPage(index, page, reportDir)
+        fetchPage(index, page, reportDir, prefix)
         print index
         index+=1
 
@@ -71,9 +71,9 @@ def run(fileName="sites.json"):
 
     reportDir = setupDirectory()
     print reportDir
-    fetchPages(reportDir, pages01)
+    fetchPages(reportDir, pages01, "pages01_")
     print "done Fetching ..."
-    # fetchPages(reportDir, pages02)
+    fetchPages(reportDir, pages02, "pages02_")
 
 # Finally we run our stuff
 run()
