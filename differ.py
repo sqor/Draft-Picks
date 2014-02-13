@@ -60,7 +60,7 @@ def fetchPages(reportDir, pages, prefix):
 
 
 def generateDiffImage(imagePath01, imagePath02, outputImageName):
-    _arguments = imagePath01 + " " + imagePath01 + " " + outputImageName
+    _arguments = imagePath01 + " " + imagePath02 + " " + outputImageName
     return shell.exec_cmd("./generateDiff.sh " + _arguments)
 
 #
@@ -70,10 +70,13 @@ def generateDiffImages(reportDir, prefix01, prefix02,  imagesCount):
         image01Path = generatePageScreenshotPath(xx, reportDir, prefix01)
         image02Path = generatePageScreenshotPath(xx, reportDir, prefix02)
         outputPath = generatePageScreenshotPath(xx, reportDir, "diff_")
+        print image01Path
+        print image02Path
         result = generateDiffImage(image01Path, image02Path, outputPath )
         print "--- diff ------"
         print result
 
+    print results
 
 def run(fileName="sites.json"):
     '''
