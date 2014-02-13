@@ -54,6 +54,7 @@ def fetchPages(reportDir, pages, prefix):
         fetchPage(index, page, reportDir, prefix)
         print index
         index+=1
+    return index
 
 def run(fileName="sites.json"):
     '''
@@ -74,6 +75,14 @@ def run(fileName="sites.json"):
     fetchPages(reportDir, pages01, "pages01_")
     print "done Fetching ..."
     fetchPages(reportDir, pages02, "pages02_")
+    pagesCount = len(pages02)
+
+    print "**********************************"
+    print pagesCount
+    print "*********************************"
+
+    # Now we actually compare
+
 
 # Finally we run our stuff
 run()
