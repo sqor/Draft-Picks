@@ -126,6 +126,8 @@ def run(fileName="sites.json"):
     print "resultsArray"
     print resultsArray
     fileName = "report.json"
+
+    os.popen("cp _templates/index.html " + reportDir + "/index.html")
     with open(os.path.join(reportDir, fileName), 'w') as fh:
         jsonStr = json.dumps({"test":resultsArray})
         fh.write( jsonStr  )
