@@ -1,2 +1,2 @@
- compare -metric rmse example1.png  example1copy.png  ee.png >> MetricDifference
+ compare -metric rmse $1 $2 $2 
 

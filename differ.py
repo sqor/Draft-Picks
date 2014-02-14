@@ -6,7 +6,7 @@ import subprocess
 
 import pdb
 
-from lib.cmds import shell
+# from lib.cmds import shell
 
 def readJsonFromFile(fileName):
     '''
@@ -31,8 +31,8 @@ def fetchPage(index, url, reportDir, prefix):
     print url
     print "--------------------_"
 
-    output = shell.exec_cmd("./getPage.sh " + url + " " + imagePath)
-
+    output = os.popen("./getPage.sh " + url + " " + imagePath)
+    return output
 
 def generatePages(pages, siteBase01, siteBase02):
     '''
