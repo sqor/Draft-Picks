@@ -6,6 +6,7 @@ import subprocess
 
 import pdb
 
+from time import sleep
 # from lib.cmds import shell
 
 def readJsonFromFile(fileName):
@@ -32,6 +33,8 @@ def fetchPage(index, url, reportDir, prefix):
     print "--------------------_"
 
     output = os.popen("./getPage.sh " + url + " " + imagePath)
+
+    sleep(10)
     return output
 
 def generatePages(pages, siteBase01, siteBase02):
@@ -64,11 +67,11 @@ def generateDiffImage(imagePath01, imagePath02, outputImageName):
     _arguments = imagePath01 + " " + imagePath02 + " " + outputImageName
     command = "./generateDiff.sh " + _arguments
 
+    #pdb.set_trace()
     popoenResult = subprocess.Popen(
             command
             , shell=True
             , stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
-    #pdb.set_trace()
 
     result = popoenResult.stderr.read()
     return result
