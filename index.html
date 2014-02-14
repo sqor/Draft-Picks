@@ -1,0 +1,76 @@
+
+<!-- Tempalte file -->
+
+<html>
+    <head>
+        <script src="../libs/underscore-min.js"/></script>
+        <script src="../libs/jquery-1.11.0.min.js"/></script>
+        <style>
+            .select_red{
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container"></div>
+        <div class="imageHolder"></div>
+    </body>
+
+    <script>
+        $(document).ready(function(){
+
+            var mouseOverSetter = function(targetEl, imgName) {
+                targetEl.mouseover(function(){
+                    var img = $("<img src='" + imgName + ".png'/>");
+                    $(".imageHolder").append(img);
+                });
+
+                targetEl.mouseout(function(){
+                    $(".imageHolder").empty();
+                });
+
+            };
+            var renderEl = function(result, index) {
+                var el = $("<div>" + index + " </div>");
+                el.append(result);
+
+                if (result[0] === "0") {
+                } else {
+                    el.addClass("select_red");
+                }
+
+                mouseOverSetter(el, "diff_" + index);
+
+                var img1Button = $("<button> Image 1 </button>").appendTo(el);
+                var img2Button = $("<button> Image 2 </button>").appendTo(el);
+
+                mouseOverSetter(img1Button, "pages01_" + index);
+                mouseOverSetter(img2Button, "pages02_" + index);
+                return el;
+            };
+            var renderAll = function(filter, results){
+                $(".container").empty();
+
+                // Render each
+                _.each(results, function(value, key){
+                    var el = renderEl(value, key);
+                    $(".container").append(el);
+                });
+            };
+
+            var init = function(data){
+                console.log(data);
+
+                renderAll("",  data.test);
+            };
+            // report.json
+            var promise = $.get("report.json");
+            promise.done(function(data){
+                init(data);
+            });
+        });
+
+    </script>
+
+</html>
+
