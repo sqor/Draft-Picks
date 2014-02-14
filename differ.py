@@ -75,6 +75,7 @@ def generateDiffImages(reportDir, prefix01, prefix02,  imagesCount):
         result = generateDiffImage(image01Path, image02Path, outputPath )
         print "--- diff ------"
         print result
+        results.append(result)
 
     print results
 
@@ -104,17 +105,16 @@ def run(fileName="sites.json"):
     print "*********************************"
 
     # Now we actually compare
-    generateDiffImages(reportDir, "pages01_",  "pages02_",  pagesCount)
-
+    resultsArray= generateDiffImages(reportDir, "pages01_",  "pages02_",  pagesCount)
+    print "resultsArray"
+    print resultsArray
+    fileName = "report.json"
+    with open(os.path.join(reportDir, fileName), 'w') as fh:
+        jsonStr = json.dumps({"test":resultsArray})
+        fh.write( jsonStr  )
 
 # Finally we run our stuff
 run()
-
-
-
-
-
-
 
 
 
