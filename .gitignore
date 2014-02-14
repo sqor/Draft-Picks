@@ -4,3 +4,6 @@ trials/
 report_*
 *.swo
 *.pyc
+
+*.png
+report/
