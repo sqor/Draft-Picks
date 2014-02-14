@@ -2,6 +2,7 @@ import json
 import sys
 import os
 import tempfile
+import subprocess
 
 import pdb
 
@@ -61,7 +62,16 @@ def fetchPages(reportDir, pages, prefix):
 
 def generateDiffImage(imagePath01, imagePath02, outputImageName):
     _arguments = imagePath01 + " " + imagePath02 + " " + outputImageName
-    return shell.exec_cmd("./generateDiff.sh " + _arguments)
+    command = "./generateDiff.sh " + _arguments
+
+    popoenResult = subprocess.Popen(
+            command
+            , shell=True
+            , stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
+    #pdb.set_trace()
+
+    result = popoenResult.stderr.read()
+    return result
 
 #
 def generateDiffImages(reportDir, prefix01, prefix02,  imagesCount):
@@ -77,7 +87,7 @@ def generateDiffImages(reportDir, prefix01, prefix02,  imagesCount):
         print result
 
         results.append(result)
-        pdb.set_trace()
+        # pdb.set_trace()
 
     print results
     return results

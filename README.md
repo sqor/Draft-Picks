@@ -39,3 +39,8 @@ python -c "import lib.cmds"
 _ = last command in python
 
 ?shell.exec_cmd ===> info about that function
+
+
+dir(obj)
+
+
