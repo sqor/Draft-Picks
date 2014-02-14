@@ -1,3 +1,4 @@
+# NOTE: very bad code.
 import json
 import sys
 import os
