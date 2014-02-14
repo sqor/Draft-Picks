@@ -75,9 +75,12 @@ def generateDiffImages(reportDir, prefix01, prefix02,  imagesCount):
         result = generateDiffImage(image01Path, image02Path, outputPath )
         print "--- diff ------"
         print result
+
         results.append(result)
+        pdb.set_trace()
 
     print results
+    return results
 
 def run(fileName="sites.json"):
     '''
