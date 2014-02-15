@@ -5,6 +5,6 @@ report_*
 *.swo
 *.pyc
 
-*diff*.png
-*page*.png
+*diff_*.png
+*pages*.png
 report/
