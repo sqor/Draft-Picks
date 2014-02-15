@@ -36,6 +36,37 @@ sqor.com/sport/mlb vs stage.sqor.com/sport/ufc
 ```
 
 
+### Seeing your report
+The report will be generated into a directory with prefix: report_*
+
+
+Since we are loading the report.json with ajax you can run a quick and simple
+http server:
+
+``` 
+python -m SimpleHTTPServer 8080
+```
+Then point your browser to: localhost:8080/
+
+There your directory report_* will be listed.
+
+
+You should see somethign like this when you click on the repor folder, you
+should see:
+
+
+###  Diff Shot
+Each row is red if there are differences for that site comparison
+On mouse over the red, you will see the actual diff between the two pages
+
+### Page 01
+This is the first page used for the above diff shot, in this case /sport/mlb  
+
+### Page 02
+This is the second page used for the diff shot, in this case /sport/ufc
+
+
+
 ## Deps:
 --------------------
 sudo apt-get install phantomjs
