@@ -73,7 +73,7 @@ This is the second page used for the diff shot, in this case /sport/ufc
 --------------------
 sudo apt-get install phantomjs
 
-### Install in OSX, Windowz
+### Install in OSX
 
 http://phantomjs.org/download.html
 
