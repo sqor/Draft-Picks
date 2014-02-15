@@ -36,7 +36,7 @@ sqor.com/sport/mlb vs stage.sqor.com/sport/ufc
 ```
 
 
-### Seeing your report
+### The report
 The report will be generated into a directory with prefix: report_*
 
 
@@ -59,13 +59,15 @@ should see:
 Each row is red if there are differences for that site comparison
 On mouse over the red, you will see the actual diff between the two pages
 
+![](https://raw.github.com/sqor/Draft-Picks/master/diff.png)
+
 ### Page 01
 This is the first page used for the above diff shot, in this case /sport/mlb  
+![](https://raw.github.com/sqor/Draft-Picks/master/page01.png)
 
 ### Page 02
 This is the second page used for the diff shot, in this case /sport/ufc
-
-
+![](https://raw.github.com/sqor/Draft-Picks/master/page02.png)
 
 ## Deps:
 --------------------
