@@ -35,6 +35,7 @@ def fetchPage(index, url, reportDir, prefix):
 
     output = os.popen("./getPage.sh " + url + " " + imagePath)
 
+    # TODO: XXX ugly part:
     sleep(10)
     return output
 

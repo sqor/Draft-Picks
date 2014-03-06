@@ -1,3 +1,10 @@
+### NOTE: very early prototyp
+
+# Gotchas: change the sleep values if you have slow loading sites.
+Works on linux, on mac there are some more tweaks to make.
+```
+sleep in differ.py and get.js 
+```
 # Draft Picks
 
 A simple tool to help you make sure the changes you intended to make are
